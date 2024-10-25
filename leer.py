@@ -3,9 +3,9 @@ from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-#KEY = 'key.json'
+KEY = 'key.json'
     #ID DEL DOCUMENTO
-#SPREADSHEET_ID = '1vN7XW12gWMcKNLDHygHuPZyyAr8_8EeZPVXJoiXPpUA'
+SPREADSHEET_ID = '1vN7XW12gWMcKNLDHygHuPZyyAr8_8EeZPVXJoiXPpUA'
 
 creds = None
 creds = service_account.Credentials.from_service_account_file(KEY, scopes= SCOPES)
