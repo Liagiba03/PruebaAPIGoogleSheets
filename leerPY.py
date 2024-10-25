@@ -2,7 +2,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-KEY = 'key.json'
+KEY = 'PruebaAPIGoogleSheets/key.json'
 SPREADSHEET_ID = '1vN7XW12gWMcKNLDHygHuPZyyAr8_8EeZPVXJoiXPpUA'
 
 def leer_google_sheets():
@@ -13,7 +13,7 @@ def leer_google_sheets():
     # Llamada a la API para obtener los valores
     result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range='facial_keypoints!A:AE').execute()
     values = result.get('values', [])
-    
+
     if not values:
         return "No se encontraron datos."
     else:
@@ -23,5 +23,5 @@ def leer_google_sheets():
         return output
 
 if __name__ == "__main__":
-    # Imprime los datos para que `app.py` los capture
-    print(leer_google_sheets())
+    result = leer_google_sheets()
+    print(result)  # Esto imprimirá el resultado en la consola
