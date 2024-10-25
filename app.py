@@ -14,7 +14,7 @@ def leer():
         datos = result.stdout
     except Exception as e:
         datos = f"Error al ejecutar leer.py: {str(e)}"
-    return render_template('index.html', mensaje=datos)
+    return render_template('resultado.html', mensaje=datos)  # Redirige a resultado.html
 
 @app.route('/insertar')
 def insertar():
@@ -23,7 +23,7 @@ def insertar():
         datos = result.stdout
     except Exception as e:
         datos = f"Error al ejecutar insertar.py: {str(e)}"
-    return render_template('index.html', mensaje=datos)
+    return render_template('resultado.html', mensaje=datos)  # Redirige a resultado.html
 
 if __name__ == '__main__':
     app.run(debug=True)

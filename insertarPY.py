@@ -20,10 +20,11 @@ result = sheet.values().append(spreadsheetId=SPREADSHEET_ID,
 							body={'values':values}).execute()
     
     if not values:
+        print("No se insertó")
         return "No se encontraron datos."
     else:
         # Convertimos los valores en una cadena de texto para mostrar en HTML
-        
+        print("Si se insertó")
         return "Inserción exitosa"
 
 if __name__ == "__main__":

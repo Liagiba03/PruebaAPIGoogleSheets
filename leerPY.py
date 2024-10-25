@@ -19,6 +19,7 @@ def leer_google_sheets():
     else:
         # Convertimos los valores en una cadena de texto para mostrar en HTML
         output = '\n'.join([', '.join(row) for row in values])
+        print("Si se leyó")
         return output
 
 if __name__ == "__main__":
