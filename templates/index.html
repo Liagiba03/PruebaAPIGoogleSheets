@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos de Google Sheets</title>
+    <title>Google Sheets API</title>
 </head>
 <body>
-    <h1>Datos de Google Sheets</h1>
-    <pre>{{ mensaje }}</pre>  <!-- Usamos 'pre' para mostrar los datos con saltos de línea -->
+    <h1>Interacción con Google Sheets</h1>
+    
+    <!-- Botones para leer e insertar -->
+    <form action="{{ url_for('leer') }}" method="get">
+        <button type="submit">Leer datos</button>
+    </form>
+    <form action="{{ url_for('insertar') }}" method="get">
+        <button type="submit">Insertar datos</button>
+    </form>
+    
+    <!-- Mostrar el mensaje o datos obtenidos -->
+    {% if mensaje %}
+    <pre>{{ mensaje }}</pre>
+    {% endif %}
 </body>
 </html>

@@ -1,13 +1,12 @@
-from google.oauth2.credentials import Credentials
-from googleapiclient.discovery import build
 from google.oauth2 import service_account
+from googleapiclient.discovery import build
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 KEY = 'key.json'
 SPREADSHEET_ID = '1vN7XW12gWMcKNLDHygHuPZyyAr8_8EeZPVXJoiXPpUA'
 
-creds = None
-creds = service_account.Credentials.from_service_account_file(KEY, scopes=SCOPES)
+def insertar_google_sheets():
+    creds = service_account.Credentials.from_service_account_file(KEY, scopes=SCOPES)
 
 service = build('sheets', 'v4', credentials=creds)
 sheet = service.spreadsheets()
@@ -19,4 +18,14 @@ result = sheet.values().append(spreadsheetId=SPREADSHEET_ID,
 							range='A1',
 							valueInputOption='USER_ENTERED',
 							body={'values':values}).execute()
-print(f"Datos insertados correctamente.\n{(result.get('updates').get('updatedCells'))}")
+    
+    if not values:
+        return "No se encontraron datos."
+    else:
+        # Convertimos los valores en una cadena de texto para mostrar en HTML
+        
+        return "Inserción exitosa"
+
+if __name__ == "__main__":
+    # Imprime los datos para que `app.py` los capture
+    print(leer_google_sheets())
